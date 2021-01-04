@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num1 = 100;
+        if(ture) {
+            var num1 = 200;
+        }
+        console.log("전역변수 : "+ num1) // 200
+
+        // 중복이 됨 단 지역변수는 지역에서만 사용
+        var num2 = 50;
+        function add(){
+            var num2 = 500;
+        }
+        add();
+        console.log("지역변수 : "+num2) // 50 
+
+        // let이 중복을 보완한것
+        // 블록안에 선언된 변수를 지역변수로판별 
+
+        let num3 = 100;
+        if(true) {
+            let num3 = 200; // 지역변수
+        }
+        
+
+    </script>
+</body>
+</html>

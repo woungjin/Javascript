@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .center{
+            text-align: center;
+        }
+        .content {
+            width: 50%; 
+            margin: 0 auto;
+            overflow:hidden;
+            border : 1px solid;
+            padding:5px;
+        }
+        .content .left ,
+        .content .right {
+            float: left;
+            width: 50%;
+            padding:5px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        .content .inner {
+            border:1px solid;
+            height: 300px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- ＊ body 색상 바꾸는 backgroundColor -->
+
+    <header>
+        <div class="center">
+            <h2>style 속성 활용하기</h2>
+            <button type="button" id="dark" >어둡게 </button>
+            <button type="button" id="bright">밝게 </button>
+        </div>
+    </header>
+
+    <section> 
+        <div class="content">
+            <div class="left">
+                <div class="inner">
+                    <img src="img/1.jpg">
+                </div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                     <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var dark = document.getElementById("dark");
+        dark.onclick = function(){
+            // var all = document.querySelector("body");
+            // all.style.backgroundColor = "black";
+
+            // 두개가 동일함 ↑ 
+            document.body.style.backgroundColor = "black"; // body : document의 하위자식
+            
+            var tag = document.querySelectorAll("h2,p,a"); // 배열형태로 태그들을 가져옴
+            for(var i=0; i<tag.length; i++){
+                tag[i].style.color="white";
+            }
+        }
+
+        var bright = document.getElementById("bright")
+        bright.onclick = function(){
+            document.body.style.backgroundColor = "white";
+
+            var tag = document.querySelectorAll("h2, p , a")
+            for(var i=0; i<tag.length; i++) {
+                tag[i].style.color="black";
+            }
+        }
+    </script>
+
+</body>
+</html>

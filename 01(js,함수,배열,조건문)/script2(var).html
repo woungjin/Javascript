@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //  ＊ var변수는 동일한 변수 중복을 선언할 수 있다
+        // 실제로 변수 선언이 일어날떄마다 새로운 변수가 만들어지는 형태이다 
+        var num1 = "10"; // 문자
+        var num2 = '10'; // 문자
+        var num3 = 10;  // 숫자
+
+        // 바꾸는게 아니라 새로 만는 개념이다
+        num1 = "20";
+
+        // let은 중복이 안된다
+        let a = 1;
+        // let a = 100;
+
+        // number 
+        var i1 = 10;
+        var i2 = 20;
+        var i3 = i1 + i2;
+        console.log("i1+i2 : " + i3);
+
+        // string
+        var s1 = "나는";
+        var s2 = "움직인다";
+        console.log("문자열 확인 :" + s1 + s2)
+
+        // boolean
+        var boolean1 = true;
+        var boolean2 = false;
+        console.log("불린 : " + boolean1)
+
+        // undefined - 변수선언 하고 초기화 안했을때 자동으로 저장
+        var un;
+        console.log("undefined : " + un);
+
+        // null - 값은 저장했으나 존재하지 않을때
+        var tag = document.querySelector("li")
+        console.log("null : " + tag)
+
+        console.log(typeof i1); // 타입형
+        console.log(typeof s1);
+        console.log(typeof boolean1);
+        console.log(typeof un);
+        console.log(typeof tag);
+    </script>
+
+</body>
+
+</html>

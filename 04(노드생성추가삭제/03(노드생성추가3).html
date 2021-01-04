@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="addList">
+        
+    </div>
+    <button type="button" id="add">추가</button>
+
+    <script>
+        window.onload = function(){
+            var ul = document.createElement("ul");
+            for(var i=1; i<=10 ;i++){
+                var li = document.createElement("li");
+                var text = document.createTextNode("리스트"+i);
+
+                li.appendChild(text); // li의 내용을 먼저 채운다
+                ul.appendChild(li); // li를 만든것을 ul로 씌운다 
+            }
+            document.getElementById("addList").appendChild(ul);
+        }
+        var add = document.getElementById("add");
+        var count = 11;
+        add.onclick = function(){
+
+            var li2 = document.createElement("li");
+            var text2 = document.createTextNode("리스트 추가" + count) ;
+            count++;
+            li2.appendChild(text2);
+            // ul의 내부에 li를 추가
+            document.querySelector("#addList > ul").appendChild(li2); 
+
+        }
+
+    </script>
+    
+</body>
+</html>

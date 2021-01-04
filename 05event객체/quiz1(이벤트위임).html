@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        ul li {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>이벤트 속성을 활용한 이미지 선택 이벤트 만들기</h2>
+
+    <div>
+        <ul class="imgList">
+            <li><img src="img/1.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+            <li><img src="img/4.jpg"></li>
+        </ul>
+    </div>
+
+    결과 :
+    <div class="result">
+        <img src="img/1.jpg" width="300">
+    </div>
+
+    <script>
+        var imgList = document.querySelectorAll("ul li img");
+        var result = document.querySelectorAll(".result img");
+
+        for (var i = 0; i < img.length; i++) {
+            imgList[i].onclick = function () {
+                console.log(event.target.src)
+
+                result.src = event.target.src;
+                
+            }
+
+        }
+
+        var img = document.querySelector(".result img") // 결과 img
+        var imgList = document.querySelector(".imgList") // 부모태그
+        imgList.onclick = function() {
+            if(event.target.tagName !== 'IMG') return; // 이미지 태그가 아니라면 종료
+            img.src = e.target.src; 
+        }
+
+    </script>
+
+</body>
+
+</html>

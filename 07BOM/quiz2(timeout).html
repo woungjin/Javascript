@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-banner1 {
+            background: linear-gradient(90deg, #0c151c 1.3125rem, transparent 1%) 50%, linear-gradient(#0c151c 1.3125rem, transparent 1%) 50%, #263747;
+            background-size: 1.5rem 1.5rem;
+            padding: 6rem 0;
+            color: #fff;
+            text-align: center;
+        }
+        .title-left,.title-right,.title-top {display: none; position: relative;}
+        .title-top {animation: topmove 1s ease-in-out;}
+        .title-left {animation: leftmove 1s ease-in-out;}
+        .title-right {animation: rightmove 1s ease-in-out;}
+        @keyframes topmove{
+            from{
+                top: -100px;
+            } to {
+                top: 0px;
+            }
+            
+        }
+        @keyframes leftmove {
+            from {
+                left: -50px;
+            } to { 
+                left: 0px;
+            }
+        }
+        @keyframes rightmove {
+            from {
+                right: -50px;
+            } to {
+                right: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-banner1">
+        <h3 class="title-top">제목영역..</h3>
+        <img class="title-left" src="img/1.jpg" width="200">
+        <img class="title-right"src="img/2.jpg" width="200">
+    </div>
+
+
+    <script>
+        
+        var main =  document.querySelector(".main-banner1s")
+        function titleTop() {
+            var top = document.querySelector(".title-top");
+            top.style.display = "block"
+        }
+        function titleLeft() {
+            var left = document.querySelector(".title-left");
+            left.style.display = "inline"
+        }
+        function titleRight() {
+            var right = document.querySelector(".title-right");
+            right.style.display = "inline";
+        }
+
+        (function() {
+            setTimeout(titleTop,1000);
+            setTimeout(titleLeft,2000);
+            setTimeout(titleRight,3000);
+        })();
+
+    </script>
+
+</body>
+
+</html>

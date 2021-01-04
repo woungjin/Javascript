@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="popup.js"></script>
+
+    <!-- js 참조 -->
+    <script src="popup.jsp"></script>
+
+</head>
+<body>
+    <h3>난 팝업창이다!!</h3>
+    오늘하루 이창열지 않기 <input type="checkbox">
+
+    <script>
+        var box = document.querySelector("input[type='checkbox']");
+        box.onclick = function() {
+
+            getCookie("mainPop");
+
+            if (box.checked) { // 체크표시 되있다면 
+                createCookie("mainPop");
+                window.close(); // 팝업창 종료
+            }
+        }
+    </script>
+</body>
+</html>

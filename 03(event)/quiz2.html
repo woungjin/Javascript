@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- confirm의 bool형 사용법 -->
+
+    <!-- 버튼 2개를 만들고 각각 confirm location.href를 이용 -->
+    <script>
+        window.onload = function () {
+            var naver = document.getElementById("naver");
+            var google = document.getElementById("google");
+          
+            naver.addEventListener("click",function(){
+                var bool = confirm("네이버로 가시겠습니까?");
+                if(bool == true) {
+                    location.href="https://www.naver.com";
+                } 
+            });
+
+            google.onclick = function(){
+                var bool = confirm("구글로 이동하시겠습니까?")
+                if(bool ) {
+                    locatino.href="https://www.google.com";
+                }
+            }
+        }
+
+    </script>
+
+    <button type="button" id="naver">네이버</button>
+
+</body>
+
+</html>

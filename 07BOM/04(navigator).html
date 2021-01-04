@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <script>
+        // console.log(navigator.appName)
+        // console.log(navigator.userAgent) // 사용자가 쓰는 브라우저 관련된 내용 
+
+        // 콜백함수 : 위치정보에 관련된 내용을 실행했을때, 성공에 대한 결과를 돌려주는 약속된 함수
+        // navigator.geolocation.getCurrentPosition(function(position){
+            // CurrentPosition() - 콜백함수를 받을때 첫번째 매개변수에 위치에 대한 정보를 받도록 정의되 있음
+            // console.log(position);
+            // console.log("위도 : " + position.coords.latitude);
+            // console.log("경도 : " + position.coords.longitude)
+        // }, function(){
+            
+        // });
+
+        function success(position){
+            console.log(position);
+            console.log("위도 : " + position.coords.latitude);
+            console.log("경도 : " + position.coords.longitude);
+        }
+
+        function fail() {
+            alert("위치 정보를 얻는데 실패했습니다.");
+        }
+
+        (function () {
+            navigator.geolocation.getCurrentPosition(success,fail);
+        })();
+
+    </script>
+
+</body>
+</html>

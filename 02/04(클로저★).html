@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 클로저 (함수) : 함수 외부에서 내부함수의 반환값을 변경하거나 접근하는 것 
+        // function func1(){
+        //     var a = "함수 안에서 선언된 변수는 지역변수";
+        // }  a는 지역변수라 나오지 못한다
+        // console.log(a);
+
+        // 줄여씀
+        function func1(){
+            var a = "함수 안에서 선언된 변수는 지역변수";
+            
+            // var result = function() {
+            //     return a ;
+            // }
+            // return result; // 함수 자체를 반환함 
+
+                return function() {
+                    return a ;
+                }
+         } // a는 지역변수라 나오지 못한다
+        // console.log(a);
+
+        console.log(func1())
+
+        var b = func1();
+        console.log(b); // 함수자체를 반환받음
+        console.log(b()); // 함수안에있는 a의 자원이 해제되지 않는다.
+        // 클로저 - fucn1안에 내부함수가 func1의 지역변수를 접근할 수 있는 키를 가지고 있다
+        // 클로저 상황 - 외부함수가 내부함수의 값을 바꾸어버리는 상황
+
+        // 클로저를 이용해서 function 안에 getter, setter 가 있는거다
+        // setter
+        function test1() {
+            var a = "private 변수";
+
+            return function(name){
+                a=name;
+                console.log("a값 확인 : ", a);
+            }
+        }
+
+        var setter = test1();
+        setter("ㅎㅇ");
+    </script>
+</body>
+</html>

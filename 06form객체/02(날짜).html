@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>날짜 객체 사용하기</h2>
+    <script>
+        // ＊ js에서 날짜 계산하는 방법 : 밀리초를 가져와 사용하면 편하다 
+        var before = new Date(1606709824519) // 이전날짜
+        console.log(before) 
+        var date = new Date() ; // 오늘 날짜 형식 
+        console.log(date) // 1606709824519
+
+        // ＊ 시간차 구하기 
+        // 1일 : 1000() * 60(1분) *60(1시간) *24 (시간)
+        var millis = 1206711954680;
+        var gap = date.getTime() - millis;  
+        if(gap < 1000*60*60*24) { // 1 일 이하인 경우
+            if(gap<1000*60*60) { // 1시간이하
+                str = "방금전";
+             } else {
+                 str = parseInt(gap / (1000 * 60 * 60) ) + "시간전" // "x시간전"
+             } 
+
+        } else { // 1일 이하인 경우 
+            var now = new Date(millis) // 해당 날짜알아내기
+            var year = now.getFullYear(); // 해당 년도
+            var month = now.getMonth()+ 1; // 해당 월
+            var day = now.getDate(); // 해당 일
+            var hour = now.getHours(); // 해당 시간
+            var minute = now.getMinutes(); // 해당 분
+            var second = now.getSeconds(); // 해당 초
+            
+            str = year +"년," +month +"월,"+day+"일,"+hour+"시간,"+minute+"분,"+second+"초"
+        } 
+        console.log(str)
+
+        
+        // date.getTime() : 시간 (m초)
+        console.log(date.getTime()); 
+        // date.getFullYear() : 년 
+        console.log(date.getFullYear()) ;
+        // date.getMonth +1 : 1달이 빠진형태로 나타남
+        console.log(date.getMonth()+1)
+        // date.getDate() : 일 
+        console.log(date.getDate());
+        // date.getHours() : 시
+        console.log(date.getHours);
+        // date.getSenconds() : 초
+        console.log(date.getSeconds);
+        
+    </script>
+</body>
+</html>

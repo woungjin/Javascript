@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- this 사용법 문제 풀이  -->
+    <!-- 각각의 체크박스를 클릭했을때의 값을 가져오는법 -->
+    <input type="checkbox" onclick="check(this)" value="1">조항 1
+    <input type="checkbox" onclick="check(this)" id="2">조항 2
+    <input type="checkbox" onclick="check(this)" id="3">조항 3
+    <input type="checkbox" onclick="check(this)" id="4">조항 4
+
+    <script>
+        function check(a) {
+            console.log(a.value)  // a태그 자신의 value 값을 얻는다
+            alert(a.value + "번 조항에 동의하였습니다")
+        }
+
+    </script>
+
+    <hr>
+    <!--  기억하기 버튼 클릭시 여부 확인 -->
+    아이디 : <input type="text" id="id" >
+    <input type="checkbox" id="remember" checked> 기억하기
+    <button type="button" id ="btn">확인</button>
+
+    <script>
+        var id = document.getElementById("id");
+        var remember = document.getElementById("remember");
+        var btn =document.getElementById("btn")
+        
+        console.log(id)
+        console.log(remember)
+        console.log(btn)
+
+        btn.onclick = function() {
+            // ★ checked : checkobx에 체크된거 확인하는법 
+            console.log("value : " + id.value)
+            console.log("체크여부 : " + remember.checked)
+        };
+
+
+    </script>
+
+</body>
+</html>

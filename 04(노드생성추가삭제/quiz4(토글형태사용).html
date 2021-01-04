@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .center{
+            text-align: center;
+        }
+        .content {
+            width: 50%; 
+            margin: 0 auto;
+            overflow:hidden;
+            border : 1px solid;
+            padding:5px;
+        }
+        .content .left ,
+        .content .right {
+            float: left;
+            width: 50%;
+            padding:5px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        .content .inner {
+            border:1px solid;
+            height: 300px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- ＊ 동일하지만 다른동작을 하는 버튼 만들기 -->
+
+    <header>
+        <div class="center">
+            <h2>style 속성 활용하기</h2>
+            <button type="button" id="btn1"class="dark" >어둡게 </button>
+            <button type="button" id="btn2"class="name" >이름보기</button>
+            <button type="button" id="btn3"class="write" >메모장 </button>
+        </div>
+    </header>
+
+    <section> 
+        <div class="content">
+            <div class="left">
+                <div class="inner">
+                    <img src="img/1.jpg">
+                </div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                     <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ＊ 어둡게 밝게
+        // body , p , h2 , a 를 얻어온다 
+        var all = document.querySelector("body");
+        var tag = document.querySelectorAll("h2,p,a");
+
+        var btn1 = document.getElementById("btn1")
+        btn1.onclick = function () {
+            if(btn1.className ==="dark"){
+                all.style.backgroundColor = "black";
+                for(var i = 0 ; i<tag.length; i++) {
+                    tag[i].style.color = "white";
+                }
+                btn1.innerHTML = "밝게";    // 버튼 내용 변경 
+                btn1.className = "white";   // 버튼의 클래스 이름을 변경
+            } else { //
+                all.style.backgroundColor ="white";
+                for(var i = 0 ; i<tag.length; i++) {
+                    tag[i].style.color = "black"; 
+                }
+                btn1.innerHTML = "어둡게";
+                btn1.className = "dark";
+            }
+        }
+
+        // p 안의 내용을 바꾸고 , a는 display처리 
+        var pp = document.querySelector(".rigth > .inner > p")
+        var a = document.querySelector(".right > .inner > a")
+
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function() {
+            
+            if(btn2.className === "name"){
+                pp.innerHTML = "sdfsdf";
+                a.style.display = "none";
+                btn2.innerHTML = "내용보기";
+                btn2.className = "cont";
+            } else {
+                p.innerHTML = "자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다";
+                a.style.display = "block";
+                btn2.innerHTML = "이름보기";
+                btn2.className="name";
+            }
+        }
+
+        // btn3 텍스트창 만들기
+        var inner = document.querySelector(".left > .inner");
+        var btn3 = document.getElementById("btn3");
+        btn3.onclick = function(){
+
+            //박스 안 요소들은 전부 삭제
+            //리스트가 가변적이기 때문에 i값의 증가가 일어나면 안된다.
+            for(var i = 0; i < inner.children.length; ){ 
+                inner.removeChild(inner.children[i]); //삭제
+            }
+
+            if(btn3.className === 'write'){
+                var textarea = document.createElement("textarea");
+                textarea.style.height = "100px";
+                textarea.style.width = "100%";
+                textarea.style.resize = "vertical";
+                textarea.style.boxSizing = "border-box";
+
+                var button = document.createElement("button");
+                button.innerHTML = "등록하기";
+                //박스안에 엘리먼트 추가
+                inner.appendChild(textarea);
+                inner.appendChild(button);
+
+                btn3.innerHTML = "사진모드";
+                btn3.className = "picture";
+            } else {
+
+                var img = document.createElement("img");
+                img.src = "../03node_selector/1.jpg";
+                inner.appendChild(img);
+
+                btn3.innerHTML = "메모장모드";
+                btn3.className = "write";
+            }
+        }
+        
+    </script>
+
+</body>
+</html>

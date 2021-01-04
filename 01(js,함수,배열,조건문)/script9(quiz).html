@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="check()">클릭</button>
+    <button type="button" onclick="method(2)">홀짝수를 판별해줍니다</button>
+    <script>
+        var check = function () {
+            alert("자바스크립트 익명함수 클릭입니다")
+        }
+        var method = function (x) {
+            if(x % 2 ==0 ){
+                alert("짝수")
+            } else{
+                alert("홀수")
+            }
+        }
+        
+        
+        var point = function (name,kor,eng,math) {
+            var sum = kor + eng + math;
+            var avg = sum / 3.0;
+            return name+"님의 평균은 : \n "+avg;
+        }
+
+        
+        function point(name, kor, eng, math) {
+                    var sum = kor + eng + math;
+                var avg = sum / 3.0;
+                return name+"님의 평균은 : \n "+avg;
+        }
+            console.log(point("홍길동" ,88,90,90));
+
+        
+
+    </script>
+  
+</body>
+</html>

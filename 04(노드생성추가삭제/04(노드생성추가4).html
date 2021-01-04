@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+            /* 윤곽의 간격 설정*/
+            border-collapse: collapse;
+
+        }
+
+        thead th {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table class="train">
+        <thead>
+            <!-- tr을 대신-->
+            <th>교시</th> <!-- td를 대신-->
+            <th>훈련과목</th>
+            <th>담당자</th>
+            <th>훈련내용</th>
+        </thead>
+        <tbody>
+            <td><input type="text" size="3"></td>
+            <td><input type="text"></td>
+            <td><input type="text" size="5"></td>
+            <td><input type="text"></td>
+        </tbody>
+    </table>
+
+    <button type="button" id="five">5개 추가하기</button>
+    <button type="button" id="one">1개 추가하기</button>
+
+    <script>
+
+        // 1개 추가
+        var one = document.getElementById("one");
+        one.onclick = function () {
+
+            var tr = document.createElement("tr");
+
+            var str = "<input type='text' size='3'>";
+            var td = document.createElement("td");
+            td.innerHTML = str;
+            tr.appendChild(td);
+
+            var str = "<input type='text' >";
+            var td = document.createElement("td");
+            td.innerHTML = str;
+            tr.appendChild(td);
+
+            var str = "<input type='text' size='5'>";
+            var td = document.createElement("td");
+            td.innerHTML = str;
+            tr.appendChild(td);
+
+            var str = "<input type='text' size='5'>";
+            var td = document.createElement("td");
+            td.innerHTML = str;
+            tr.appendChild(td);
+            
+            document.querySelector(".train").appendChild(tr);
+        }
+
+        // 5개 추가
+        var five = document.getElementById("five");
+        five.onclick = function () {
+            for (var i = 1; i <= 5; i++) {
+
+                var tr = document.createElement("tr");
+                for (var j = 1; j <= 4; j++) {
+                    var input = document.createElement("input");
+                    var td = document.createElement("td");
+                    td.appendChild(input)
+                    tr.appendChild(td);
+                }
+                document.querySelector(".train").appendChild(tr);
+            }
+        }
+    </script>
+</body>
+
+</html>

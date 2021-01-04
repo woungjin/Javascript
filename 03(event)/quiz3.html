@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- innerHtml 과 onchange 사용법 -->
+
+    <h4 id="title"></h4>
+
+    <select id="hi">
+        <option value="영어">hello</option>
+        <option value="한국어">안녕</option>
+        <option value="중국어">니하오</option>
+    </select>
+
+    <script>
+        var lan = document.getElementById("lan");
+        var title = document.getElementById("title");
+
+        hi.onchange = function () {
+
+            console.log(hi.value)
+            var a = hi.value;
+
+            title.innerHTML = hi.value + "입니다.";
+
+        }
+
+    </script>
+</body>
+
+</html>

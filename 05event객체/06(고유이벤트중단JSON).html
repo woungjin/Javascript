@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>엘리먼트의 dataset(필요한 데이터들을 저장해놓는곳 )을 사용하는 방법</h2>
+
+    <ul class="nameList">
+        <li><a href="#" data-userInfo='{"id" : "1", "age" :"20" , "name" : "길동"}'>길동</a></li>
+        <li><a href="#" data-userInfo='{"id" : "2", "age" :"30" , "name" : "순신"}'>순신</a></li>
+        <li><a href="#" data-userInfo='{"id" : "3", "age" :"40" , "name" : "홍길자"}'>홍길자</a></li>
+        <li><a href="#" data-userInfo='{"id" : "4", "age" :"50" , "name" : "박찬호"}'>박찬호</a></li>
+    </ul>
+
+    <script>
+        var nameList = document.querySelector(".nameList")
+        nameList.onclick = function() {
+            event.preventDefault() ; // a의 고유 이벤트 중단
+            if(event.target.tagName !=='A') return; // a태그가 아니라면 중단
+            
+            // 하이푼을 인식을 못해서 dataset으로 접근
+            // data- -> js에서는  dataset.이름으로 접근 
+            console.log(event.target.dataset.userinfo) 
+
+            var data = event.target.dataset.userinfo;
+            var jsonData = JSON.parse(data); // 제이슨으로 파싱하고(형변환)
+
+            // json에 저장된 값 뽑아내기
+            console.log("id : " + jsonData.id , "age : " + jsonData.age )
+            
+            
+        }
+    </script>
+</body>
+</html>

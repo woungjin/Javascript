@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        /* 선과선이 겹치는 거리 */
+        th,
+        td {
+            border: 1px solid black
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- ＊ 노드들관의 관계를 나타내는 함수들 -->
+    <button type="button" id="del">일괄삭제</button>
+    <table>
+        <thead>
+            <th><input type="checkbox" class="allCheck"></th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </thead>
+        <tbody class="table">
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>1</td>
+                <td>길동이</td>
+                <td>hello world</td>
+                <td>2020-01-01</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>2</td>
+                <td>이순신</td>
+                <td>hello world</td>
+                <td>2020-02-02</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>3</td>
+                <td>박찬순</td>
+                <td>hello world</td>
+                <td>2020-03-03</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="check"></td>
+                <td>4</td>
+                <td>김영희</td>
+                <td>뷁</td>
+                <td>2020-04-04</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+        var del = document.getElementById("del");
+        var list = document.querySelectorAll(".check")
+        del.onclick = function () {
+            for (var i = 0; i < list.length; i++) {
+                if(list[i].checked) {
+                    list[i].parentElement.parentElement.remove(); // tr을 삭제
+                }
+            }
+        }
+
+        var allCheck = document.querySelector(".allCheck");
+        allCheck.onclick = function() {
+            // 전체 선택이 true라면
+            // console.log(allCheck.checked)
+            for(var i = 0; i<list.length; i++) {
+                list[i].checked = allCheck.checked;  // 체크박스들을 true or false로 바꾼다
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

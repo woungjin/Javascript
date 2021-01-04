@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- this 사용법 -->
+    <!-- 인라인 이벤트를 써서 하나의 함수에서 처리핫요 -->
+
+    <h2>자바 카운트 다운</h2>
+    <input type="text" id="result" value="0">
+    <button type="button" onclick="calc(this)">+</button>
+    <button type="button" onclick="calc(this)">-</button>
+
+    <script>
+        var num2=0;
+    
+        function calc(num) {
+            var result = document.getElementById("result");
+
+            if(num.innerHTML ==="+"){
+                result.value++;
+            } else {
+                if(result.value <= 0){
+                    alert("더이상 줄일수 없습니다")
+                    return;
+                }
+                result.value--;
+            }
+        }
+
+    </script>
+
+    
+
+
+
+    
+</body>
+
+</html>

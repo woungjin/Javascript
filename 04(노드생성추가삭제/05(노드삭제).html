@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- ＊ createTextNode("") -->
+
+        <script>
+            window.onload = function(){
+    
+                var add = document.getElementById("add");
+                console.log(add)
+                add.onclick = function() {
+                    // 엘리먼트 생성 createElement("태그");
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    var text = document.createTextNode("하고싶은말");
+    
+                    // ＊ appendChild : a의 자식으로 text를 추가한다
+                    a.appendChild(text)
+                    // a의 href 속성 추가 
+                    a.href = "https://www.google.com";
+                    // li의 자식으로 a를 추가 
+                    li.appendChild(a);
+                    // list의 자식으로 li를 추가
+                    document.querySelector(".list").appendChild(li); // 밑의ul클래스에 붙임
+                }
+
+                // 하나의 태그를 삭제하는 방법 
+                var remove = document.getElementById("remove")
+                remove.onclick = function(){
+                    var list = document.querySelector(".list")
+                    // list.remove();  // ＊주의 : 전체(태그자체)를 다 삭제해버림
+
+                    // console.dir(list);  : 태그의 내부기능들을 확인가능함
+
+
+                    // list.removeChild(list.childNodes[0]) // 공백을 포함해 엘리먼트를 자식요소로 선택함
+                    list.removeChild(list.children[0]) ; // 공백을 제거한 순수한 엘리먼트만 자식요소로 선택
+                }
+
+            }
+        </script>
+    
+        <button type="button" id="add">추가</button>
+        <button type="button" id="remove">삭제</button>
+        <ul class="list">
+        </ul>
+    
+</body>
+</html>
+
+

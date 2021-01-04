@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="ajax()">비동기요청</button>
+    <script>
+        function ajax() {
+            
+            // fetch("hi.txt").then(function(response) {
+            //     response.text().then(function(text){
+            //         alert(text);
+            //     })
+
+            // })
+
+            
+            // ＊ Promise : fetch사용시 결과에 대한 상태정보를 반환해주는 약속된 객체
+            // ＊ Pending : 수행중 
+            // ＊ fulfiled : 성공적 완료
+            // ＊ rejected : 실패
+            var result = fetch("hi.txt"); 
+            console.log(result) // promise -> (pending,fulfiled,rejected)
+
+            // 3nd
+            // ＊ ajax : 다른함수의 실행과 동시에 실행됨(순서보장없음)
+            // 결과를 받아오면 then*()에 정의된 콜백함수에 값을 넣어주게된다
+            var callback = function() {
+                console.log("마지막에 실행되는 구문")
+            }
+
+            fetch("hi.txt").then(callback);
+            console.log(1);
+            console.log(2);
+
+            fetch("hi.txt").then(function(response){
+                // 200 : 정상상태
+                if(response.status != 200) { // 정상상태가 아니라면 실행
+                    alert("네트워크 상에 문제가 발생했습니다.")
+                    return;
+                }
+
+                // 응답객체안의 text()는 문자열의 형태로 변환후 then안의 콜백함수에 다시 넣어준다
+                response.text().then(function(data){
+                    console.log(data)
+                }) 
+            })
+        }
+
+        // 5nd
+        // http://127.0.0.1:5502/09ajax/hi.json
+        fetch("hi.json").then(function(response){
+            if(response.status != 200) {
+                alert("네트워크 상에 문제가 발생했습니다.");
+            } else {
+                // 응답형태가 json이라면 json()를 이용해 결과를 받아서 반복문으로 사용함
+                response.json().then(function(data) {
+                    // console.log(data);
+                    for(var k in data) {
+                        console.log(k);
+                        console.log(data[k])
+                    }
+                });
+            }
+        });
+
+
+        // 6nd
+        // 간단하게
+        fetch("hi.json").then(function(response){
+            return response.json();
+        }).then(function(data){
+            return data.user_id;
+        }).then(function(data) {
+            return data;    
+        }).then(function(data) {
+            console.log(data) // kkk123
+        });
+        
+
+    </script>
+
+
+    
+</body>
+</html>

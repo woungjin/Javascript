@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="form">
+        좌석 :
+        <input type="checkbox" name="seat" value="1">1
+        <input type="checkbox" name="seat" value="2">2
+        <input type="checkbox" name="seat" value="3">3
+        <input type="checkbox" name="seat" value="4">4
+        <input type="checkbox" name="seat" value="5">5
+        <input type="checkbox" name="seat" value="6">6
+        <input type="checkbox" name="seat" value="7">7
+        <input type="checkbox" name="seat" value="8">8
+        <button type="button" id="btn">예약</button>
+
+    </form>
+
+    <script>
+        // 예약 버튼을눌렀을때 좌석이 최소 한개이상 채크되어 있지 않다면 ,경고
+        // 체크된값은 JSON형태의 배열로 포장
+
+        var btn = document.getElementById("btn")
+        btn.onclick = function () {
+
+            var seat = document.querySelectorAll("input[name='seat']")
+            var bool = true;
+            var arr = new Array();
+            for (var i = 0; i < seat.length; i++) {
+                if (seat[i].checked) {
+                    bool = false;
+                }
+            }
+            if (bool) {
+                alert("좌석은 최소 한개이상 입니다!")
+                return;
+            } else {
+                var data = JSON.stringify({data:arr}) // data에 arr배열을 담는다
+                console.log(data)
+            } 
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>

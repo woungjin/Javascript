@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .tog li {
+            display: inline-block;
+            padding: 10px;
+        }
+
+        .tog-menu {
+            display: none;
+        }
+
+        .active {
+            display: block;
+            /* 정의한 애니메이션을 사용하는방법 */
+            animation : myfadein 1s ease-in-out; /* 호출할 애니메이션, 지속시간, 옵션*/
+        }
+
+        /* 애니메이션 만들기 */
+        @keyframes myfadein {
+            from {
+                opacity: 0;
+                
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section>
+        <ul class="tog">
+            <li data-id="#tog1">메뉴1</li>
+            <li data-id="#tog2">메뉴2</li>
+            <li data-id="#tog3">메뉴3</li>
+        </ul>
+
+        <!-- 메뉴에 따라서 보여줄 영역 -->
+        <div>
+            <div class="tog-menu active" id="tog1">토글메뉴1</div>
+            <div class="tog-menu" id="tog2">토글메뉴2</div>
+            <div class="tog-menu" id="tog3">토글메뉴3</div>
+        </div>
+    </section>
+    <script>
+        /*
+            이벤트 위임방식을 이용해서 이벤트를 처리 
+            data-id값을 얻어서 각 아이디에 적합한 태그 class이름에 active를 추가
+            나머지 tog-menu의 active는 지워준다
+            containts, add, remove
+        */
+
+        var tog = document.querySelector(".tog");
+        tog.onclick = function () {
+            //event.preventDefault (); // 만약 a태그엿다면
+            if(event.target.tagName !== 'LI') return; // 버블링 되는걸 막음
+
+            // active가 포함되있다면 active를 전부 삭제(누적되면 안되니까)
+            var togList = document.querySelectorAll(".tog-menu");
+            for(var i = 0; i<togList.length; i++) {
+                if(togList[i].classList.contains('active')) { // classList = 다수 , className = 단일
+                    togList[i].classList.remove("active"); // i번쨰 클래스리스트의 active만 삭제
+                }
+            }
+            
+            // 태그의 data-id를얻어와서 현재 실행되는 대상에 add()함수 추가 
+            // console.log(event.target.dataset.id) : data-id를 가져오는 방법
+            
+
+            // data-id를 얻어와 실행되는 대상에 class이름을 추가 한다
+            var target = event.target.dataset.id; 
+            document.querySelector(target).classList.add("active") ; //클래스이름 active
+            
+
+        }
+    </script>
+</body>
+
+</html>

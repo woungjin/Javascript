@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        querySelector() - 단일 선택 (css 문법)
+        querySelectorAll() - 복수 선택 (css 문법)
+     -->
+
+    <script>
+        window.onload = function () {
+
+            // querySelector 
+            var b1 = document.getElementById("btn1");
+                // var b2 = document.querySelector("#btn1")
+
+            // console.log(b1) // 둘이 똑같다
+            // console.log(b2) // 둘이 똑같다
+
+            b1.onclick = function () {
+                // 단일 선택자이기에 한개의 엘리먼트만 가진다 
+                var list = document.querySelector(".box1 li"); // 박스내의 li 선택
+                list.innerHTML = "querySelector 단일선택";
+            }
+
+
+        }
+    </script>
+
+    <!-- 인라인 이벤트를 사용해서 처리한다  -->
+    <button type="button" id="btn1">querySelector 확인</button>
+    <div>
+        <ul class="box1">
+            <li>안녕</li>
+            <li>헬로</li>
+            <li>니하오</li>
+        </ul>
+    </div>
+
+
+    <!-- querySelectorAll -->
+
+    <button type="button" id="btn2">querySelectorAll</button>
+    <div>
+        <ul class="box2">
+            <li>홍길동</li>
+            <li>홍</li>
+            <li>홍길</li>
+        </ul>
+    </div>
+
+    <script>
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function() {
+            var list = document.querySelectorAll(".box2 li")
+            for(var i = 0 ; i < list.length; i++) {
+                list[i].innerHTML = "ㅎㅇ" ;
+                list[i].style.color ="red";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

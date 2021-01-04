@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- ＊ createTextNode("") -->
+
+        <script>
+            window.onload = function(){
+    
+                var add = document.getElementById("add");
+                add.onclick = function() {
+                    // 엘리먼트 생성 createElement("태그");
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    var text = document.createTextNode("하고싶은말");
+    
+                    // ＊ appendChild : a의 자식으로 text를 추가한다
+                    a.appendChild(text)
+                    // a의 href 속성 추가 
+                    a.href = "https://www.google.com";
+                    // li의 자식으로 a를 추가 
+                    li,appendChild(a);
+                    // list의 자식으로 li를 추가
+                    document.querySelector(".list").appendChild(li); // 밑의ul클래스에 붙임
+                    console.log(li)
+
+                    console.log("gdgd")
+                }
+            }
+        </script>
+    
+        <button type="button" id="add">추가</button>
+        <ul class="list">
+        
+        </ul>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 여태까지는 항상 값을 변경한 다음에 버튼을 클릭하는 방식으로 사용함 -->
+    <!-- 동일한 형태의 여러 태그에 대해서 그 즉시 반영시키는 이벤트를 주려면 어찌할까? -->
+
+    <!-- ＊ event.target : this와 비슷한 의미로 지금 실행되는 이벤트 대상을 가르킨다 -->
+
+    <ul>
+        <li class="list">홍길동</li>
+        <li class="list">이순신</li>
+        <li class="list">홍길자</li>
+        <li class="list">김길자</li>
+        <li class="list">고길동</li>
+    </ul>
+
+    <div class="result">sdf     </div>
+
+    <script>
+        var result = document.querySelector(".result");
+        var list = document.querySelectorAll(".list");
+        //list[0].onclick ...
+
+        // target : 현재 실행되고 있는 이벤트의 대상을 가르킨다 
+        // list[0].onclick = function() {
+        //     result.innerHTML = event.target.innerHTML;
+        // }
+
+        for (var i = 0 ; i<list.length ; i++) {
+            list[i].onclick = function () {
+                result.innerHTML = event.target.innerHTML;
+            }
+        }
+
+    </script>
+
+</body>
+</html>     

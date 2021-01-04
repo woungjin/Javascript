@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ＊ for in 배열문 사용법
+        var arr = [1,2,3,4,5 , "홍길동","이순신"]
+
+        // 1. index or key의 값이 들어간다 
+        for(var i in arr ) {
+            console.log(i) // INDEX
+        }
+        for(var i in arr ) { // KEY
+            console.log(arr[i]) 
+        }
+
+        /* 2. 객체형태로 들어가면 왼쪽의 키를 뽑는다 */
+        var obj = {"key1" : "가" , "key2": "나","key3" : "다"};
+        console.log(obj) 
+        for(var i in obj){
+            console.log(i) // 키
+            console.log(obj[i])  // 깂
+        }
+        
+        for(var i = 0; i< arr.length; i++){
+            if(i==2) continue;
+            console.log(i)
+        }
+    </script>
+</body>
+</html>

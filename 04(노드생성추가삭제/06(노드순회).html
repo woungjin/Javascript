@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        /* 선과선이 겹치는 거리 */
+        th,
+        td {
+            border: 1px solid black
+        }
+
+        ;
+    </style>
+</head>
+
+<body>
+    <!-- ＊ 노드들관의 관계를 나타내는 함수들 -->
+
+    <table>
+        <thead>
+            <th>이동</th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </thead>
+        <tbody class="table">
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button"
+                        onclick="up(this)">↑</button></td>
+                <td>1</td>
+                <td>길동이</td>
+                <td>hello world</td>
+                <td>2020-01-01</td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button"
+                        onclick="up(this)">↑</button></td>
+                <td>2</td>
+                <td>이순신</td>
+                <td>hello world</td>
+                <td>2020-02-02</td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button"
+                        onclick="up(this)">↑</button></td>
+                <td>3</td>
+                <td>박찬순</td>
+                <td>hello world</td>
+                <td>2020-03-03</td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="down(this)">↓</button><button type="button"
+                        onclick="up(this)">↑</button></td>
+                <td>4</td>
+                <td>김영희</td>
+                <td>뷁</td>
+                <td>2020-04-04</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+        function down(node) {
+
+            // 부모 , 이웃노드를 선택하는 방법이 2가지가있는데 
+            // Element가 있는애들 : text나 공백을 제외하고 선택
+            // 따라서 보통 Element이름이 있는 속성을 사용한다 
+
+
+            console.dir(node);
+            console.log(node.parentElement) // 부모노드
+            console.log(node.parentNode) // 부모노드
+
+            console.log(node.nextElementSibling); // 다음형제 노드
+            console.log(node.nextSibling) // 다음형제 노드
+
+            console.log(node.previousElementSibling); // 이전형제
+            console.log(node.previousSibling) // 이전형제
+
+            console.log(node.firstChild)  // == child와 같은 거라 보면됨 
+            console.log(node.firstElementChild); // tag들만 잡아준다
+
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement // bt -> li -> tr - 기준노드
+            var next = current.nextElementSibling // tr 다음행
+
+            // insertBefore(옴길노드,기준노드)
+
+            if (next === null) {
+                alert("다음행이 존재하지 않습니다. ")
+                return; // 종료
+            }
+            table.insertBefore(next, current) // current(tr)을 기준으로 next(tr다음)으로 이동해라
+
+        }
+
+        function up(node) {
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement;
+            var prev = current.previousElementSibling;
+
+            if (prev == null) {
+                alert("이전 형이 존재하지 않습니다")
+                return;
+            }
+            console.log(table)
+                table.insertBefore(current, prev); // 이전껄 기준으로 
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        /* 선과선이 겹치는 거리 */
+        th,
+        td {
+            border: 1px solid black
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1px">
+        <tbody class="tableList">
+            <tr>
+                <td>번호</td>
+                <td>제목</td>
+                <td>내용</td>
+                <td>삭제</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td>
+                    <button class="btn info" type="button">시험기본정보</button>
+                    <button class="btn input" type="button">시험출제</button>
+                    <button class="btn result" type="button">시험결과</button>
+                    <button class="btn manage" type="button">성적관리</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button class="btn" type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button class="btn" type="button">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var tableList = document.querySelector(".tableList");
+        tableList.onclick = function() {
+
+            // 1. 버튼이 아니면 실행종료문작성 
+            if(event.target.tagName !== "BUTTON") return;
+            var classList = event.target.classList;
+            if(classList.contains('info')) {
+                console.log("시험기본정보...")
+                console.log(event.target);
+            } else if (classList.contains("input")) {
+                console.log("시험 출제...")
+                console.log(event.target);
+            } else if (classList.contains("result")) {
+                console.log("시험결과");
+                console.log(event.target);
+            } else if (classList.contains("manage")) {
+                console.log("시험성적관리");
+                console.log(event.target);
+            }
+
+        }
+    </script>
+
+</body>
+</html>

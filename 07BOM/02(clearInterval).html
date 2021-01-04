@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // setInterval()은 일정시간 마다 함수를 반복실행 
+        // 첫번째 매개변수는 (실행할 함수 , 인터벌 시간)이 들어간다
+        // test([1,2,3]);
+        // test({"z":1});
+        // test(fuction() );
+        // test(fuction(){});
+
+        // function test(a){
+        //     console.log(a);
+        // }
+
+        var stop = setInterval(function () {
+            console.log(1);
+        }, 1000);
+
+
+        var stopInterval = document.querySelector(".stopInterval");
+        stopInterval.onclick = function () {
+            clearInterval(stop); // 매개변수로 중지시키려는 함수를 넣는다 
+
+        }
+    </script>
+
+</body>
+
+</html>

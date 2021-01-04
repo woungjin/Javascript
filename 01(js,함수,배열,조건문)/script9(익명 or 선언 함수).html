@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // ＊ 선언적 함수 vs 익명함수
+
+    // - 선언적 함수 -
+    func1(4); // 호이스팅 - 선언적 함수 에서만 가능
+    func2();
+
+    // 호이스팅 : 이름있는 함수는 맨위에서 사용가능 
+
+    function func1(a) {
+        console.log("func1 실행 , a의 값 :" + a)
+    }
+    function func2() {
+        console.log("func2 실행")
+    }
+
+    // 1.함수를 변수에 저장 
+    var a = func1 ; 
+    // var a = func1(); - error : func1()함수의 리턴형 값을 반환해준다 
+    console.log(a(10))
+
+
+    // - 익명 함수 : 변수에 함수를 저장해 마치 함수처럼 사용하는 변수 (호이스팅 안됨) 
+    // 가장 많이 씀
+    var b = function () {
+        console.log("얘는 익명함수를 품은 변수입니다")
+    }
+    b() ; // 익명함수 호출 
+    
+
+    var point = function (name,kor,eng,math) {
+            var sum = kor + eng + math;
+            var avg = sum / 3.0;
+            return name+"님의 평균은 : \n "+avg;
+        }
+    
+    </script>
+    
+</body>
+</html>

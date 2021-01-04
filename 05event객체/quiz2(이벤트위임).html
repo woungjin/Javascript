@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <h2>이벤트 속성을 이용하기 and 위임방식으로도</h2>
+
+    <table border="1px">
+        <tbody class="board">
+            <tr>
+                <td>번호</td>
+                <td>제목</td>
+                <td>내용</td>
+                <td>삭제</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button class="btn" type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button class="btn" type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button class="btn" type="button">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // var btn = document.querySelectorAll("td > button");
+        // for (var i = 0; i < btn.length; i++) {
+        //     btn[i].onclick = function () {
+        //         console.log(event.target.parentElement.parentElement)
+        //         event.target.parentElement.parentElement.remove();
+        //     }
+
+        // }
+        
+
+        //부모 이벤트 위임방식 (nodeName : 현재 노드의 이름)
+        Bigbox.onclick = function(){
+            if(event.target.nodeName !== "BUTTON") return;
+            event.target.parentElement.parentElement.remove();
+            console.log(event.target.nodeName)
+        }
+    </script>
+
+</body>
+
+</html>

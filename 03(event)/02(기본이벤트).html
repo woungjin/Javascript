@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button type="button" id="bt">기본이벤트1</button> -->
+
+    <script>
+        // 스크립트 코드가 엘리먼트(태그)위에 있다면 , window.onload이벤트를 활용할 수 있다 
+        // window.onload : 페이지가 로딩된 직후 실행해주는 이벤트
+        // 단, 페이지에서 1번만 사용 가능 
+        window.onload = function () {
+            // 기본이벤트 - 엘리먼트(태그)를 얻어서 익명함수로 이벤트를 걸어주는 방식
+            var bt = document.getElementById("bt")
+            bt.onclick = function () { // onclick에 익명함수를 넣는다
+                alert("기본이벤트2 실행");
+                console.log()
+            }
+        }
+    </script>
+
+    <button type="button" id="bt">기본이벤트2</button>
+
+</body>
+
+</html>

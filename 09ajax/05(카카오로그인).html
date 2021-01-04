@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1. 카카오 SDK 호출 -->
+    <!-- <script src="js/kakao.js"> </script> -->
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+</body>
+<a id="custom-login-btn" href="javascript:loginWithKakao()">
+    <img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg" width="222" />
+</a>
+<script>
+    // 2. 카카오 SDK 초기화 자신의 .init(key) -> 자바스크립트 키 번호를 입력하자 
+    Kakao.init('4f9a6f443a406a256566610533973f53');
+    console.log(Kakao.isInitialized());
+    
+    // 3. 사용방법을 확인하고 코드를 해석해서 로그인 기능
+    function loginWithKakao() {
+        Kakao.Auth.login({
+            success: function (authObj) {
+                // 접근권한 - 어세스 토큰을 저장한다(항상 사용하기위해)
+                // console.log(authobj)
+                Kakao.Auth.setAccessToken(authObj.access_token);
+
+                // 4. 사용자 계정정보를 얻는 함수를 호출
+                getInfo();
+            },
+            fail: function (err) {
+                alert(JSON.stringify(err))
+            },
+        })
+    }
+    
+
+    // 4. 사용자 계정정보얻는 기능
+    function getInfo() {
+        Kakao.API.request({
+        url: '/v2/user/me',
+        success: function(res) {
+          console.log(res); 
+          // 1. 이메일
+
+          // 2. 프로필
+
+          // 3. 이름 
+
+        },
+        fail: function(error) {
+          alert(
+            'login success, but failed to request user information: ' +
+              JSON.stringify(error)
+          )
+        },
+      })
+    };
+</script>
+
+</html>

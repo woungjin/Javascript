@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            ＊ xml형식의 데이터를 뽑아내는 방법
+            예를 들어 공공데이터 포털에서 받아온 데이터가 xml문서인 경우,
+            사용할수 있도록 가공해야 되는데 (데이터 변환)
+            그것을 "파싱"이라 한다 
+            xml문서를 파싱 
+        */
+
+        fetch("data.xml").then(function(response) {
+            
+            return response.text(); // 1. text형식으로 변환 
+
+        }).then(function(data) {
+            // ＊ 문자열을 xml형식으로 변환 
+            return new DOMParser().parseFromString(data,"text/xml");
+        }).then(function(data) {
+            console.log(data) 
+
+            var result = data.getElementsByTagName("data");
+            for(var i = 0; i<result.length; i++ ) {
+                console.log(result.item(i).children[0].innerHTML);
+                console.log(result.item(i).children[1].innerHTML);
+                console.log(result.item(i).children[2].innerHTML);
+            }
+            
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 인라인 이벤트 : 태그에 직접 붙이는것  -->
+    <!-- javascript : 생략 가능 -->
+    <button type="button" onclick="check()">ㅎㅇ?</button>
+
+    <!-- 동일한 태그에 동일 인라인 이벤트인 경우 --> <!--id: 태그의 고유값-->
+    <!-- this : 어떤 버튼을 클릭한건지 확인할때 사용함 -->
+    <button type="button" onclick="check2(this)" id="1">1</button>
+    <button type="button" onclick="check2(this)" id="2">2</button>
+    <button type="button" onclick="check2(this)" id="3">3</button>
+    <button type="button" onclick="check2(this)" id="4">4</button>
+    <button type="button" onclick="check2(this)" id="5">5</button>
+
+    <script>
+        function check() {
+            alert('헐');
+        }
+
+        // this           : 태그의 속성에 접근할수있다
+        // 매개변수 a      : this로 찍은 속성을 받아준다
+        // console.log(a) : this의 대상자체를 출력해준다 
+        function check2(a){
+            // console.log("실행됨")
+            // console.log(a); // 태그 자체를 가져옴
+            // console.log(a.type) // button
+            // console.log(a.onclick)  // onclick함수
+            // console.log(a.id)   // 클릭된 id의 값 
+
+            // // innerHTML : 선택된 퇴그의 text요소를 가르킨다
+            // console.log(a.innerHTML);
+            // a.innerHTML = "hello world";
+            a.innerHTML = a.id ;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>폼객체는 document의 하위 객체중 하나로 유일하게 name속성으로 접근이 가능하다</h2>
+    <form action="#" name="regForm">
+        아이디 : <input type="text" name="id"><br>
+        비번 :  <input type="password" name="pw"> <br>
+        
+        번호 : 
+        <section name="phone">
+            <option >선택</option>
+            <option >010</option>
+        </section>
+
+        분야 : 
+
+        <input type="checkbox" name="inter">java
+        <input type="checkbox" name="inter">jsp
+        <input type="checkbox" name="inter">jsp
+
+        <button type="button" onclick="check()">가입</button>
+
+        
+    </form>
+    
+    <script>
+        // 1. 방법
+        // document.querySelector("form[name='regForm']")
+        // 2. document.폼네임
+        // document.regForm
+
+        function check() {
+            if(document.regForm.id.value.length < 4 ) {
+                alert("아이디는 4글자 이상입니다");
+                document.regForm.id.focus(); // id의 위치에 화면을 가져다 준다 
+                return; // 조건을 만족하지못하면 멈추어주어야 한다     
+            } else if (document.regForm.phone.value === "선택") {
+                alert("번호를 확인해 주세요");
+                document.regForm.phone.focus();
+                return;
+            } else {
+                // 체그박스 검사
+                document.getElementById("inter");
+                var bool = true;
+                for(var i = 0; i<inter.length; i++) {
+                    if(inter[i].checked) {
+                        bool = false; // 체그가 되어있다면 false
+                        break;
+                    }
+                }
+                if(bool) { // 한개도 체크가 안되있다면 실행하게됨
+                    alert("한개 이상은 선택하셔야 합니다")
+                    return;
+                }
+            }
+            // submit()  : 폼태그를 서브밋
+            document.regForm.submit();
+        }
+    </script>
+</body>
+</html>

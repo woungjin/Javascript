@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        getElementById()
+        getElementsByName()
+        getElementsByClassName()
+        getElementsByTagName()
+
+     -->
+
+    <!-- getElementsByName() -->
+    <script>
+        window.onload = function () {
+
+            var btn1 = document.getElementById("btn1");
+            btn1.onclick = function () {
+                // getElementsByName() : name이 같은것들을 배열로 만들어 list로 만들어준다
+                // 주로 체크박스에서 사용함 
+                var arr = document.getElementsByName("inter"); // arr에 list로 배열로 담아줌 
+                console.log(arr) // 모든 inter가 담게됨
+
+                for (var i = 0; i < arr.length; i++) {
+                    console.log(arr[i]);
+                    console.log(arr[i].value);  // 속성 값 확인
+                    console.log(arr[i].checked); // 체크 되있는지 확인 
+                }
+            }
+        }
+    </script>
+
+    <button type="button" id="btn1">체크박스 요소들 확인</button>
+    <input type="checkbox" name="inter" value="1">JAVA
+    <input type="checkbox" name="inter" value="2">JSP
+    <input type="checkbox" name="inter" value="3">JSX
+    <input type="checkbox" name="inter" value="4">SPRING
+    <input type="checkbox" name="inter" value="5">DB
+    <input type="checkbox" name="inter" value="6">JS
+
+    <!-- getElementsByClassName() : class이름을 모아 배열 list형태로 만들어준다 -->
+    <button type="button" id="btn2">라디오 버튼 확인해보기</button>
+    <input type="radio" name="major" class="apple" value="1">프로그램디자인
+    <input type="radio" name="major" class="apple" value="2">디자인
+    <input type="radio" name="major" class="apple" value="3">시스템
+    <input type="radio" name="major" class="apple" value="4">네트워크
+
+    <script>
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function () {
+
+            // 엘리먼트의 클래스 이름이     
+            var arr = document.getElementsByClassName("apple");
+            for (var i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+                console.log(arr[i].value);
+                console.log(arr[i].checked);
+            }
+        }
+    </script>
+
+
+
+    <!-- getElementsByTagName() : select 박스 내부의 option들을 배열로 가져옴 -->
+
+    <div>
+        <button type="button" id="btn3">셀렉트 요소 확인</button>
+        <select id="select1">
+            <option value="010">010</option>
+            <option value="02">02</option>
+            <option value="031">031</option>
+            <option value="051">052</option>
+            <option value="052">051</option>
+        </select>
+    </div>
+
+    <script>
+        var btn3 = document.getElementById("btn3");
+        btn3.onclick = function(){
+
+            var select1 = document.getElementById("select1");
+            console.log(select1); 
+            // getElementsByTagName() : select1내부의 태그이름이 option인 것들
+            var arr = select1.getElementsByTagName("option"); 
+            for (var i = 0 ; i < arr.length ; i++ ) {
+                console.log(arr[i]);
+                console.log(arr[i].value) ;
+                console.log(arr[i].selected); // select에선 selected
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

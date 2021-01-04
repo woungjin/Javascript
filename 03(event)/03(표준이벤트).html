@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 표준 이벤트 -->
+    <button type="button" id="bt">표준이벤트</button>
+
+    <script>
+        var bt = document.getElementById("bt");
+        // 함수를 선언하고 사용할때
+        bt.addEventListener("이벤트 종류(=click)",view1); // 이벤트 앞에 on을 붙이지 않는다
+        
+        function view1() {
+            alert("이벤트 리스터")
+        }
+
+        // 익명함수를 바로 넣어서 사용할때의 방법
+        bt.addEventListener("click", function () {
+            alert("이벤트 리스너 ")
+        })
+
+    </script>
+
+    <hr>
+
+    <script>
+        window.onload =function(){
+            // 이벤트 리스너 기법은 -    
+            var bt2 = document.getElementById("bt2");
+            bt2.addEventListener("click",test1); // 1번 함수 연결
+        }
+
+        function test1() {
+            console.log("1번 이벤트")
+        }
+
+        function test2() {
+            console.log("2번 이벤트")
+        }
+    </script>
+
+    <button type="button" id="bt2">표준이벤트2</button>
+
+</body>
+</html>

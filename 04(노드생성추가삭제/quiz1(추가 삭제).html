@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>할일</h2>
+    <form class="nameForm">
+        <h2 class="nameTitle"></h2>
+        <input type="text" placeholder="이름을 입력해 주세요">
+        <button type="button">확인</button>
+    </form>
+
+    <form class="todoForm">
+        <input type="text" placeholder="할일을 적으세요">
+        <button type="button">확인</button>
+    </form>
+
+    <ul class="tolist">
+
+    </ul>
+
+    <script>
+        // ＊ 이름 
+        var nameForm = document.querySelector(".nameForm");
+        var nameInput = nameForm.querySelector("input");
+        var nameButton = nameForm.querySelector("button");
+        var nameTitle = nameForm.querySelector("h2");
+
+        nameButton.addEventListener("click", regist);
+
+        function regist() {
+            nameTitle.innerHTML = nameInput.value + "님 안녕하세요"
+            nameButton.style.display = "none"; // button 안보이도록
+            nameInput.style.display = "none"; // input 안보이도록     
+        };
+
+        var todoForm = document.querySelector(".todoForm");
+        var todoInput = todoForm.querySelector("input");
+        var todoButton = todoForm.querySelector("button");
+
+        // ＊ 할일
+        todoButton.addEventListener("click", handleTodo);
+        function handleTodo() {
+            createTodo(todoInput.value); // 엘리먼트값
+            todoInput.value = ""; // input 초기화
+        };
+
+        function createTodo(text) {
+            var ul = document.querySelector(".tolist");
+            // 버튼생성
+            var btn = document.createElement("button");
+            btn.innerHTML = "X";
+            btn.addEventListener("click",deleteTodo) // 이벤트 추가
+
+            // li생성
+            var li = document.createElement("li")
+            li.innerHTML=text;
+            // li에 버튼추가
+            li.appendChild(btn);
+            // ul에 li 추가
+            ul.appendChild(li);
+        };
+
+        function deleteTodo() {
+            this.parentElement.remove(); // this를 사용한것의 부모를 삭제
+        }
+
+    </script>
+
+</body>
+
+</html>

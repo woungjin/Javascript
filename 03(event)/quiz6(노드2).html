@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--    ＊ id와 비번 잘못입력시 밑에 글 띄우는법 -->
+    <div>
+        <form>
+            아이디 : <input type="text" name="id"> <br>
+            <span class="idMsg"></span><br>
+            비밀번호 : <input type="password" name="pw"> <br>
+            <span class="pwMsg"></span>
+        </form>
+    </div>
+
+    <script>
+        var id = document.querySelector("input[name='id']")
+        var idMsg = document.querySelector(".idMsg")
+        id.addEventListener("keyup", function () {
+
+            if (id.value.length < 4) {
+                idMsg.innerHTML = "4글자 이상 입력해 주세요";
+                id.style.borderColor = "red";
+            } else {
+                idMsg.innerHTML = "사용가능합니다"
+                id.style.borderColor = "blue";
+            }
+
+        });
+
+        var pw = document.querySelector("input[name='pw']")
+        var pwMsg = document.querySelector(".pwMsg")
+        pw.onkeyup = function () {
+            if (pw.value.length < 7) {
+                pwMsg.innerHTML = "8글자 이상 입력해 주세요";
+                pw.style.borderColor = "red"
+            } else {
+                pwMsg.innerHTML = ""
+                pw.style.borderColor = "green"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
